@@ -128,4 +128,3 @@ if(timeleft <= 0){
 
 
 startGame();
-   
