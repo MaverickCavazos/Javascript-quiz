@@ -1,0 +1,5 @@
+.choice-container:hover {
+  cursor: pointer;
+  transform: translateY(-0.2rem);
+  transition: transform 150ms;
+}
