@@ -11,21 +11,34 @@
 <body>
     <div class="row min-vh-100 bg-light align-content-center">
         <section class="row w-100 d-flex justify-content-center">
+
             <div>
-                <h1 class="display-2 text-center">Javascript Quiz</h1> 
-                <p>Try to answer the following questions about Javascript to the best of your ability!</p>
-                <div class="row justify-content-center mt-5">
-                    <a class="btn btn-dark display-3 text-center" href="./quiz.html">Start Quiz </a> 
+                <h1 class="display-2 text-center">Quiz Over!</h1> 
+
+                <div id="end" class="d-flex display-4">
+                    <p class="ml-3" id="finalScore"></p>
                 </div>
+
+                <form class="mt-5 pb-5 text-center">
+        
+                  <input type="text" name="username" id="username" placeholder="username">
+                  <button type="submit" class="btn bg-dark text-light" id="saveScore" onclick="saveHighScore(event)" disabled>submit</button> 
+                </form>
+                
+                <div class="row justify-content-center mt-5">
+                    <a class="btn btn-dark display-3 text-center" href="./index.html">Restart Quiz </a> 
+                </div>
+
                 <div class="row justify-content-center mt-3">
                     <a class="btn btn-dark display-3 text-center" href="/">HiScores</a>
                 </div>
+
             </div>
+
         </section>
+
     </div>
 
-
-
-
+<script src="assets/js/end.js"></script>
 </body>
 </html>

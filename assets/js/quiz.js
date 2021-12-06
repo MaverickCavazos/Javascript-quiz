@@ -1,10 +1,10 @@
 var question = document.getElementById("question");
 var choices = Array.from(document.getElementsByClassName("choice-text"));
 var timeleft = 60;
+var grade = document.getElementById("score");
 
 let currentQuestion = {};
 let acceptingAnswers = false;
-let score = 0;
 let questionCounter = 0;
 let availableQuesions = [];
 
@@ -39,7 +39,7 @@ let questions = [
     choice2: "Array",
     choice3: "Loop",
     choice4: "String",
-    answer: 3
+    answer: 2
   },
   {
     question: "What does a loop do?",
@@ -47,7 +47,7 @@ let questions = [
     choice2: "create a string",
     choice3: "writes html text",
     choice4: "Gets a document by ID",
-    answer: 3
+    answer: 1
   }
 ];
 
@@ -57,15 +57,16 @@ var questionLimit = 5;
 
 startGame = () => {
   questionCounter = 0;
-  score = 0;
+  grade = 0;
   availableQuesions = [...questions];
   getNewQuestion();
 };
 
 function getNewQuestion() {
   if (availableQuesions.length === 0 || questionCounter >= questionLimit) {
-    //go to the end page
-    return window.location.assign("/end.html");
+    localStorage.setItem("mostRecentScore", grade);
+
+    window.location.href = "./end.html";
   }
   questionCounter++;
   var questionIndex = Math.floor(Math.random() * availableQuesions.length);
@@ -94,6 +95,14 @@ choices.forEach(choice => {
     var classToApply =
       selectedAnswer == currentQuestion.answer ? "correct" : "incorrect";
 
+     if (classToApply == "incorrect"){
+         timeleft = timeleft - 10
+     } else {
+         grade = grade + points
+         document.getElementById("score").innerHTML = "Score " + grade
+     }
+
+
     selectedChoice.parentElement.classList.add(classToApply);
 
     setTimeout(() => {
@@ -105,13 +114,16 @@ choices.forEach(choice => {
 
 var countDown = setInterval(function() {
 if(timeleft <= 0){
-    clearInterval(downloadTimer);
-    document.getElementById("countdown").innerHTML = "Finished";
+    clearInterval(countDown);
+    document.getElementById("timer").innerHTML = "TIMES UP";
+    window.location.href = "./end.html";
   } else {
-    document.getElementById("countdown").innerHTML = timeleft + " seconds remaining";
+    document.getElementById("timer").innerHTML = timeleft + " seconds remaining";
   }
   timeleft -= 1;
 }, 1000);
+
+
 
 
 
