@@ -18,7 +18,7 @@ let questions = [
     answer: 1
   },
   {
-    question: "What is the correct syntax for referring to an external script called 'xxx.js'?",
+    question: "What is the correct syntax for referring to an external js file to html?",
     choice1: "<script href='xxx.js'>",
     choice2: "<script name='xxx.js'>",
     choice3: "<script src='xxx.js'>",
@@ -26,12 +26,12 @@ let questions = [
     answer: 3
   },
   {
-    question: " How do you write 'Hello World' in an alert box?",
-    choice1: "msgBox('Hello World');",
-    choice2: "alertBox('Hello World');",
-    choice3: "msg('Hello World');",
-    choice4: "alert('Hello World');",
-    answer: 4
+    question: "how do you target a specific html element by id?",
+    choice1: "document.getElementById",
+    choice2: "document.getElementsByClassName",
+    choice3: "target.element(#id)",
+    choice4: "add.event.listener",
+    answer: 1
   },
   {
     question: "What is it called when you turn elements into a list?",
