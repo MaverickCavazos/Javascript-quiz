@@ -4,22 +4,23 @@ var finalScore = document.getElementById('finalScore');
 var mostRecentScore = localStorage.getItem('mostRecentScore');
 
 var highScores = JSON.parse(localStorage.getItem('highScores')) || [];
-
+console.log(highScores)
 
 
 finalScore.innerText = "Final Score is " + mostRecentScore;
 
 username.addEventListener('keyup', () => {
     saveScore.disabled = !username.value;
+    
 });
 
-function savehighScore(event){
-    event.preventDefault();
+saveHighScore = (e) => {
+    e.preventDefault();
 
-    var score = {
-        score:mostRecentScore,
+    const score = {
+        score: mostRecentScore,
         name: username.value,
-};
+    };
 
 highScores.push(score);
 highScores.sort( (a,b) => b.score - a.score)
